@@ -3,12 +3,25 @@
 // funzioni
 
 
-function myCreateElement(htmlElement, coloreCelle, numeroCelle, className, htmlValue) {
+function myCreateElement(htmlElement, coloreCelle, numeroCelle, modalita, className, htmlValue) {
     const element = document.createElement(htmlElement);
     element.classList.add(className);
     element.innerText = htmlValue;
 
+    if (modalita === 'easyMode') {
 
+        element.classList.add('celle-10');
+    }
+
+    else if (modalita === 'midMode') {
+
+        element.classList.add('celle-8');
+    }
+
+    else if (modalita === 'hardMode') {
+
+        element.classList.add('celle-7');
+    }
 
 
     element.addEventListener('click', function () {
@@ -18,10 +31,7 @@ function myCreateElement(htmlElement, coloreCelle, numeroCelle, className, htmlV
 
 
     }
-
-
     )
-
     return element;
 }
 
@@ -33,13 +43,16 @@ function myAppendElement(containerElement, htmlElement) {
 
 
 function createGrid() {
+    
     const selectMode = document.getElementById('mode');
     const selectModeValue = selectMode.value
     let mode;
     let cellNumber;
+    let classeCelle;
 
     if (selectModeValue === 'easyMode') {
-        className
+
+        classeCelle = document.querySelector('.classe-10');
         mode = selectModeValue;
         cellNumber = 100;
 
@@ -49,6 +62,7 @@ function createGrid() {
     else if (selectModeValue === 'midMode') {
         mode = selectModeValue;
         cellNumber = 81;
+        classeCelle = document.querySelector('.classe-8');
 
     }
 
@@ -56,7 +70,7 @@ function createGrid() {
 
         mode = selectModeValue;
         cellNumber = 49;
-
+        classeCelle = document.querySelector('.classe-7');
 
     }
 
@@ -67,7 +81,7 @@ function createGrid() {
     for (let i = 1; i <= cellNumber; i++) {
 
         console.log(i)
-        const createElement = myCreateElement('div', 'colore-celle', cellNumber, mode, i);
+        const createElement = myCreateElement('div', 'colore-celle', cellNumber, mode, classeCelle, i);
         myAppendElement(containerBoard, createElement);
 
     }
