@@ -35,7 +35,7 @@ const bombe = randomNumber(cellNumber);
         for (let i = 0; i < cellNumber; i++)
             if (bombe[i] === cellNumber){
                 element.classList.add (coloreCelleRosso);
-
+                location.reload();
             }
             else {
 
@@ -49,7 +49,6 @@ const bombe = randomNumber(cellNumber);
     )
     return element;
 }
-
 
 
 
@@ -88,7 +87,7 @@ function createGrid() {
 
     if (selectModeValue === 'easyMode') {
 
-        classeCelle = document.querySelector('.classe-10');
+        
         mode = selectModeValue;
         cellNumber = 100;
 
@@ -98,7 +97,7 @@ function createGrid() {
     else if (selectModeValue === 'midMode') {
         mode = selectModeValue;
         cellNumber = 81;
-        classeCelle = document.querySelector('.classe-8');
+        
 
     }
 
@@ -106,7 +105,7 @@ function createGrid() {
 
         mode = selectModeValue;
         cellNumber = 49;
-        classeCelle = document.querySelector('.classe-7');
+        
 
     }
 
