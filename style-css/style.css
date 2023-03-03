@@ -81,10 +81,15 @@ footer {
 
 }
 
-.colore-celle {
+.colore-celle-blu {
 
     background-color: blue;
 
+}
+
+.colore-celle-rosso{
+
+    background-color: red;
 }
 
 .inputStyle {

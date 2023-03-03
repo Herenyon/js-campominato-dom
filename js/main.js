@@ -3,11 +3,12 @@
 // funzioni
 
 
-function myCreateElement(htmlElement, coloreCelle, cellNumber, modalita, className, htmlValue) {
+function myCreateElement(htmlElement, coloreCelleBlu, coloreCelleRosso, cellNumber, modalita, mode, htmlValue) {
     const element = document.createElement(htmlElement);
-    
-    element.classList.add(className);
+    // element.classList.add(coloreCelleRosso);
+    element.classList.add(mode);
     element.innerText = htmlValue;
+    // element.classList.add(coloreCelleBlu);
 
     if (modalita === 'easyMode') {
 
@@ -23,13 +24,23 @@ function myCreateElement(htmlElement, coloreCelle, cellNumber, modalita, classNa
 
         element.classList.add('celle-7');
     }
-
+    
+   
+const bombe = randomNumber(cellNumber);
+        console.log(bombe);
+    
 
     element.addEventListener('click', function () {
-        // let bombe = randomNumber(cellNumber);
-        // console.log(bombe);
         
-        element.classList.add(coloreCelle);
+        for (let i = 0; i < cellNumber; i++)
+            if (bombe[i] === cellNumber){
+                element.classList.add (coloreCelleRosso);
+
+            }
+            else {
+
+                element.classList.add (coloreCelleBlu);
+            }
 
         console.log(htmlValue);
 
@@ -38,6 +49,26 @@ function myCreateElement(htmlElement, coloreCelle, cellNumber, modalita, classNa
     )
     return element;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function myAppendElement(containerElement, htmlElement) {
 
@@ -53,7 +84,7 @@ function createGrid() {
     let mode;
     let cellNumber;
     let classeCelle;
-    let bombe;
+    // let bombe;
 
     if (selectModeValue === 'easyMode') {
 
@@ -81,22 +112,20 @@ function createGrid() {
 
     console.log(mode);
     console.log(cellNumber);
+    // const bombe = randomNumber(cellNumber);
 
-    // bombe = randomNumber(cellNumber);
-
-
+    // console.log(bombe);
+    
 
     for (let i = 1; i <= cellNumber; i++) {
 
         console.log(i)
-        const createElement = myCreateElement('div', 'colore-celle', cellNumber, mode, classeCelle, i);
+        const createElement = myCreateElement('div', 'colore-celle-blu', 'colore-celle-rosso', cellNumber, mode, classeCelle, i);
         myAppendElement(containerBoard, createElement);
 
     }
+
 }
-
-
-
 
 function randomNumber(cellNumber) {
 
@@ -106,15 +135,17 @@ function randomNumber(cellNumber) {
 
         let numeroBombe = Math.floor(Math.random() * cellNumber) + 1;
 
-        if (bombe.indexOf(numeroBombe) === -1){
+        if (bombe.indexOf(numeroBombe) === -1) {
 
             bombe.push(numeroBombe);
         }
-        
+
     }
-    
+
     return bombe;
 }
+
+
 
 
 // main
@@ -144,4 +175,5 @@ playButton.addEventListener('click',
 
         }
     }
+
 )
