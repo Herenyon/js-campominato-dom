@@ -1,0 +1,103 @@
+* {
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    background-color: brown;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header,
+footer {
+    background-color: aliceblue;
+    padding: 1.25rem;
+    height: 80px;
+}
+
+.header-container {
+    display: flex;
+    height: 100%;
+    padding: 0 2.5rem;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.left-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+}
+
+#logo-boolean {
+    height: 100%;
+    margin-right: 1.875rem;
+
+}
+
+.board {
+    background-color: aquamarine;
+    width: 37.5rem;
+    height: 37.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+
+}
+
+
+
+.celle-10 {
+    border: 1px solid black;
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.celle-8 {
+    border: 1px solid black;
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+
+}
+
+.celle-7 {
+    border: 1px solid black;
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+
+}
+
+.colore-celle {
+
+    background-color: blue;
+
+}
+
+.inputStyle {
+    border-radius: 5px;
+    border-color: #b91547;
+    border-width: 2px;
+    color: black;
+}
+
+.inputStyle.btnStyle {
+    padding: 4px 16px;
+    background-color: #c5c5c5;
+    color: #b91547;
+
+    border-color: #878787;
+}
