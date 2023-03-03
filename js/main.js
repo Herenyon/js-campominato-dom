@@ -3,8 +3,9 @@
 // funzioni
 
 
-function myCreateElement(htmlElement, coloreCelle, numeroCelle, modalita, className, htmlValue) {
+function myCreateElement(htmlElement, coloreCelle, cellNumber, modalita, className, htmlValue) {
     const element = document.createElement(htmlElement);
+    
     element.classList.add(className);
     element.innerText = htmlValue;
 
@@ -25,6 +26,9 @@ function myCreateElement(htmlElement, coloreCelle, numeroCelle, modalita, classN
 
 
     element.addEventListener('click', function () {
+        // let bombe = randomNumber(cellNumber);
+        // console.log(bombe);
+        
         element.classList.add(coloreCelle);
 
         console.log(htmlValue);
@@ -43,12 +47,13 @@ function myAppendElement(containerElement, htmlElement) {
 
 
 function createGrid() {
-    
+
     const selectMode = document.getElementById('mode');
     const selectModeValue = selectMode.value
     let mode;
     let cellNumber;
     let classeCelle;
+    let bombe;
 
     if (selectModeValue === 'easyMode') {
 
@@ -77,6 +82,9 @@ function createGrid() {
     console.log(mode);
     console.log(cellNumber);
 
+    // bombe = randomNumber(cellNumber);
+
+
 
     for (let i = 1; i <= cellNumber; i++) {
 
@@ -88,6 +96,25 @@ function createGrid() {
 }
 
 
+
+
+function randomNumber(cellNumber) {
+
+    let bombe = [];
+
+    while (bombe.length < 16) {
+
+        let numeroBombe = Math.floor(Math.random() * cellNumber) + 1;
+
+        if (bombe.indexOf(numeroBombe) === -1){
+
+            bombe.push(numeroBombe);
+        }
+        
+    }
+    
+    return bombe;
+}
 
 
 // main
